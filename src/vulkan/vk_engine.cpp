@@ -1,9 +1,13 @@
+#include <SDL2/SDL_keyboard.h>
+#include <iostream>
 
 #include "vk_engine.h"
 #include "vk_inits.h"
 #include "vk_types.h"
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_events.h>
+#include <SDL2/SDL_video.h>
 #include <SDL2/SDL_vulkan.h>
 
 void VulkanEngine::init() {
@@ -38,9 +42,12 @@ void VulkanEngine::run() {
   while (!bQuit) {
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
-      // close the window when user alt-f4s or clicks the X button
-      if (e.type == SDL_QUIT)
+      switch (e.type) {
+      case SDL_QUIT: // quit event on alt+f4 or x-button
         bQuit = true;
+      case SDL_KEYDOWN: // key down, print key name
+        std::cout << SDL_GetKeyName(e.key.keysym.sym) << "\n";
+      }
     }
 
     draw();
