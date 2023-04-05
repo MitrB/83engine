@@ -1,7 +1,15 @@
+#include "vulkan/vk_engine.h"
 #include <iostream>
 
-int main() {
-  std::cout << "Hey there"
-            << "\n";
+int main(int argc, char* argv[]) {
+
+  VulkanEngine engine;
+
+  engine.init();
+
+  engine.run();
+
+  engine.cleanup();
+
   return 0;
 }
