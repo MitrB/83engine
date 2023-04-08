@@ -5,6 +5,7 @@ project(83engine)
 add_subdirectory(third_party)
 
 find_package(Vulkan REQUIRED)
+find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
 
 file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)

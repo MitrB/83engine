@@ -1,9 +1,13 @@
-#include "vulkan/vk_engine.h"
+#include "engine/engine.h"
+#include "renderer/opengl/ogl_renderer.h"
+#include "renderer/renderer.h"
+#include "renderer/vulkan/vk_renderer.h"
+
 #include <iostream>
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
 
-  VulkanEngine engine;
+  eightthreeegnine::OpenGlRenderer engine;
 
   engine.init();
 
