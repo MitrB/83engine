@@ -1,13 +1,21 @@
 #include "ogl_renderer.h"
 #include "../../../third_party/glad/include/glad/glad.h"
 #include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 
 namespace eightthreeegnine {
 SDL_WindowFlags OpenGlRenderer::getWindowFlags() {
 
-  SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
+  SDL_WindowFlags window_flags =
+      (SDL_WindowFlags)(SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
   return window_flags;
+}
+
+void OpenGlRenderer::draw() {
+  glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+  glClear(GL_COLOR_BUFFER_BIT);
+  SDL_GL_SwapWindow(_window);
 }
 
 int OpenGlRenderer::initGlad() {
@@ -35,5 +43,6 @@ void OpenGlRenderer::init() {
 
   // Remember in OpenGl the first 2 parameters are the LOWER-LEFT CORNER coords
   glViewport(0, 0, 640, 360); // setting the dimentions for the viewport
+
 }
 } // namespace eightthreeegnine

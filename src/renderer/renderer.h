@@ -10,6 +10,7 @@
  */
 
 #pragma once
+#include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 #include <iostream>
 
@@ -28,7 +29,7 @@ public:
   void cleanup();
 
   // draw loop
-  void draw();
+  virtual void draw();
 
   // run main loop
   void run();

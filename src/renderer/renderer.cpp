@@ -3,6 +3,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 #include <SDL2/SDL_opengl.h>
+#include <SDL2/SDL_render.h>
 #include <SDL2/SDL_video.h>
 
 namespace eightthreeegnine {
@@ -17,11 +18,12 @@ void Renderer::init() {
                        SDL_WINDOWPOS_UNDEFINED, width, height, window_flags);
 }
 
-void Renderer::cleanup() { SDL_DestroyWindow(_window); }
-
 void Renderer::draw() {
-  // nothing yet
+  std::cout << "BASE RENDERER DRAW FUNCTION"
+            << "\n";
 }
+
+void Renderer::cleanup() { SDL_DestroyWindow(_window); }
 
 void Renderer::run() {
   SDL_Event e;
@@ -41,9 +43,8 @@ void Renderer::run() {
         }
       }
     };
+    draw();
   }
-
-  draw();
 }
 
 void Renderer::framebuffer_size_callback(SDL_Window *window, int width,

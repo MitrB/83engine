@@ -8,6 +8,7 @@ class OpenGlRenderer : public eightthreeegnine::Renderer {
 public:
   SDL_WindowFlags getWindowFlags();
   void init();
+  void draw();
 
 private:
   int initGlad();
