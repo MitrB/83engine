@@ -8,7 +8,7 @@ find_package(Vulkan REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
 
-file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp)
+file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/third_party/*.c)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
@@ -22,7 +22,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(SDL2)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE SDL2::SDL2 SDL2::SDL2main)
+target_link_libraries(${PROJECT_NAME} PRIVATE SDL2::SDL2 SDL2::SDL2main OpenGL::OpenGL)
 
 if(WIN32)
   # copy the SDL2.dll to the same folder as the executable

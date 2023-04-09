@@ -11,9 +11,10 @@ void Renderer::init() {
   SDL_WindowFlags window_flags = getWindowFlags();
 
   _window =
-      SDL_CreateWindow("82Engine", SDL_WINDOWPOS_UNDEFINED,
+      SDL_CreateWindow("83Engine", SDL_WINDOWPOS_UNDEFINED,
                        SDL_WINDOWPOS_UNDEFINED, width, height, window_flags);
 }
+
 void Renderer::cleanup() { SDL_DestroyWindow(_window); }
 
 void Renderer::draw() {
@@ -36,4 +37,10 @@ void Renderer::run() {
     draw();
   }
 }
+
+void Renderer::framebuffer_size_callback(SDL_Window *window, int width,
+                                         int height) {
+  glViewport(0, 0, width, height);
+}
+
 } // namespace eightthreeegnine

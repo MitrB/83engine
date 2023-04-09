@@ -7,5 +7,10 @@ namespace eightthreeegnine {
 class OpenGlRenderer : public eightthreeegnine::Renderer {
 public:
   SDL_WindowFlags getWindowFlags();
+  void init();
+
+private:
+  int initGlad();
+  SDL_GLContext maincontext;
 };
 } // namespace eightthreeegnine

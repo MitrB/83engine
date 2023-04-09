@@ -11,17 +11,16 @@
 
 #pragma once
 #include <SDL2/SDL_video.h>
-#include <cstddef>
 #include <iostream>
 
 namespace eightthreeegnine {
 class Renderer {
+public:
   int width = 640;
   int height = 360;
 
   SDL_Window *_window{nullptr};
 
-public:
   // initializes everything in the engine
   void init();
 
@@ -40,5 +39,15 @@ public:
    * @return SDL_WindowFlags 
    */
   virtual SDL_WindowFlags getWindowFlags() {return {};};
+
+  /**
+   * @brief Resize callback to SDL window
+   * 
+   * @param window 
+   * @param width 
+   * @param height 
+   */
+  virtual void framebuffer_size_callback(SDL_Window *window, int width, int height);
+
 };
 } // namespace eightthreeegnine
