@@ -7,13 +7,13 @@
 
 int main(int argc, char *argv[]) {
 
-  eightthreeegnine::OpenGlRenderer engine;
+  eightthreeegnine::Engine engine;
 
-  engine.init();
+  eightthreeegnine::OpenGlRenderer renderer;
+
+  engine.setRenderer(renderer);
 
   engine.run();
-
-  engine.cleanup();
 
   return 0;
 }

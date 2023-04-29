@@ -32,7 +32,7 @@ public:
   virtual void draw();
 
   // run main loop
-  void run();
+  bool run();
 
   /**
    * @brief Get the Window Flags object

@@ -25,26 +25,26 @@ void Renderer::draw() {
 
 void Renderer::cleanup() { SDL_DestroyWindow(_window); }
 
-void Renderer::run() {
+bool Renderer::run() {
   SDL_Event e;
   bool bQuit = false;
 
-  // main loop
-  while (!bQuit) {
-    // Handle events on queue
-    while (SDL_PollEvent(&e) != 0) {
-      // close the window when user alt-f4s or clicks the X button
-      switch (e.type) {
-      case SDL_QUIT:
-        bQuit = true;
-      case SDL_WINDOWEVENT:
-        if (e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
-          framebuffer_size_callback(_window, e.window.data1, e.window.data2);
-        }
+  // Handle events on queue
+  while (SDL_PollEvent(&e) != 0) {
+    // close the window when user alt-f4s or clicks the X button
+    switch (e.type) {
+    case SDL_QUIT:
+      std::cout << "QUIT CALL" << "\n";
+      bQuit = true;
+    case SDL_WINDOWEVENT:
+      if (e.window.event == SDL_WINDOWEVENT_SIZE_CHANGED) {
+        framebuffer_size_callback(_window, e.window.data1, e.window.data2);
       }
-    };
-    draw();
-  }
+    }
+  };
+  draw();
+
+  return bQuit;
 }
 
 void Renderer::framebuffer_size_callback(SDL_Window *window, int width,
