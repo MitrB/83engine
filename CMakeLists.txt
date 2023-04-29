@@ -8,7 +8,10 @@ find_package(Vulkan REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
 
-file(GLOB_RECURSE SOURCES ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/third_party/*.c)
+file(GLOB_RECURSE SOURCES 
+  ${PROJECT_SOURCE_DIR}/src/*.cpp 
+  ${PROJECT_SOURCE_DIR}/third_party/*.c 
+)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
@@ -34,3 +37,9 @@ if(WIN32)
     VERBATIM)
 endif()
 
+file(GLOB_RECURSE SHADER_SOURCE_FILES 
+  ${PROJECT_SOURCE_DIR}/shaders/*.frag 
+  ${PROJECT_SOURCE_DIR}/shaders/*.vert
+)
+
+add_custom_target(Shaders DEPENDS $(SHADER_SOURCE_FILES))

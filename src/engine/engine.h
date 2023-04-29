@@ -8,8 +8,6 @@ class Engine {
   int _frameNumber{0};
   bool running{false};
 
-  float vertices[9] = {-0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f, 0.5f, 0.0f};
-
 public:
   OpenGlRenderer renderer;
 
