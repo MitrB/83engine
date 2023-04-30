@@ -1,4 +1,2 @@
 # 83engine
-Oct-Tree rendering engine.
-
-Learning Entity Component System, Cmake, Vulkan, OpenGl. 
+Me doing graphics programming tuorials, once ready, will nuke repo and start engine.
